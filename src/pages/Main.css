@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+.menu {
+  width: 100%;
+  height: 100vh;
+  background-color: #342b2b;
+}
+.menu__top {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chess-logo {
+  width: 50px;
+  height: 60px;
+}
+.menu__top h1 {
+  font-family: "Montserrat", sans-serif;
+  color: aliceblue;
+}
+.box {
+  column-gap: 40px;
+  display: flex;
+  color: white;
+}
+.box__left {
+  display: inline-block;
+  margin: 0;
+}
+.chess-board {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+.chess-board th {
+  padding: 0.5em;
+}
+.chess-board td {
+  border: 1px solid;
+  width: 70px;
+  height: 70px;
+  text-align: center;
+  vertical-align: middle;
+}
+.chess-board .white {
+  background: #f0d9b5;
+}
+.chess-board .black {
+  background: #b58863;
+}
+.chess-board img {
+  width: 60px;
+  height: 60px;
+}
+.play{
+  width: 220px;
+  height: 80px;
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  color: aliceblue;
+  font-weight: 900;
+  border: none;
+  background-color: #68B74D;
+}
+.box__right{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
