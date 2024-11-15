@@ -393,7 +393,8 @@
             "moves": [
                 1,2,3,4
             ],
-            "isAlive": true
+            "isAlive": true,
+            "located":"8d"
         },
         {
             "id":2,

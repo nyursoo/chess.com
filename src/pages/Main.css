@@ -77,25 +77,50 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.boardChess{
+.chessboard {
+  display: grid;
+  grid-template-columns: repeat(8, 50px); /* 8 колонок */
+  grid-template-rows: repeat(8, 50px);    /* 8 строк */
+  width: 400px;
+  height: 400px;
+}
+
+.cell {
   width: 50px;
   height: 50px;
 }
-.board{
-  display: grid;
-  grid-template-columns: repeat(8,50px);
-  grid-template-rows: repeat(8,50px);
-  
+
+/* Черно-белая раскраска */
+.cell:nth-child(odd) {
+  background-color: #000; /* Черный */
 }
-.boardChess:nth-child(odd){
-  background: #342b2b;
+
+.cell:nth-child(even) {
+  background-color: #fff; /* Белый */
 }
-.boardChess:nth-child(even){
-  background: #f0d9b5;
+
+/* Смещение цветов на четных строках */
+.chessboard > *:nth-child(-n+8):nth-child(odd){
+  background-color: #fff;
 }
-.board:nth-child(2n) .boardChess:nth-child(odd){
-  background: #f0d9b5;
+.chessboard > *:nth-child(-n+8):nth-child(even){
+  background-color: #000;
 }
-.board:nth-child(2n) .boardChess:nth-child(even){
-  background: #342b2b;
+.chessboard > *:nth-child(n+17):nth-child(-n+24):nth-child(odd){
+  background-color: #fff;
+}
+.chessboard > *.cell:nth-child(n+17):nth-child(-n+24):nth-child(even){
+  background-color: #000;
+}
+.chessboard > *:nth-child(n+33):nth-child(-n+40):nth-child(odd){
+  background-color: #fff;
+}
+.chessboard > *.cell:nth-child(n+33):nth-child(-n+40):nth-child(even){
+  background-color: #000;
+}
+.chessboard > *:nth-child(n+49):nth-child(-n+56):nth-child(odd){
+  background-color: #fff;
+}
+.chessboard > *.cell:nth-child(n+49):nth-child(-n+56):nth-child(even){
+  background-color: #000;
 }

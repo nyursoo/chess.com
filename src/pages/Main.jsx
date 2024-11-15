@@ -19,10 +19,19 @@ import axios from "axios";
 
 const Main = () => {
   const [board,setBoard] = useState([])
+  const [figure,setFigure] = useState([])
   useEffect(()=>{
     axios('http://localhost:8080/board')
+    
+
     .then(({data})=>setBoard(data))
   },[])
+
+  useEffect(()=>{
+    axios('http://localhost:8080/figure')
+    .then(({data})=>setFigure(data))
+  },[])
+  console.log(figure[0])
   return (
     <div>
       <section className="menu">
@@ -215,10 +224,10 @@ const Main = () => {
         </div>
 
 
-        <div className="board">
+        <div className="chessboard">
           {
             board.map((el)=>(
-              <div className={'boardChess'}></div>
+              <div className={'cell'}></div>
             ))
           }
         </div>
