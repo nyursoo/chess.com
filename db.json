@@ -1,0 +1,651 @@
+{
+    "board":[
+        {
+            "id": 1,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "1a"
+        },
+        {
+            "id": 2,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "1b"
+        },
+        {
+            "id": 3,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "1c"
+        },
+        {
+            "id": 4,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "1d"
+        },
+        {
+            "id": 5,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "1e"
+        },
+        {
+            "id": 6,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "1f"
+        },
+        {
+            "id": 7,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "1g"
+        },
+        {
+            "id": 8,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "1h"
+        },
+        {
+            "id": 9,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "2a"
+        },
+        {
+            "id": 10,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "2b"
+        },
+        {
+            "id": 11,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "2c"
+        },
+        {
+            "id": 12,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "2d"
+        },
+        {
+            "id": 13,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "2e"
+        },
+        {
+            "id": 14,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "2f"
+        },
+        {
+            "id": 15,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "2g"
+        },
+        {
+            "id": 16,
+            "isBlack": false,
+            "isWhite": true,
+            "name": "2h"
+        },
+        {
+            "id": 17,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "3a"
+        },
+        {
+            "id": 18,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "3b"
+        },
+        {
+            "id": 19,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "3c"
+        },
+        {
+            "id": 20,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "3d"
+        },
+        {
+            "id": 21,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "3e"
+        },
+        {
+            "id": 22,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "3f"
+        },
+        {
+            "id": 23,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "3g"
+        },
+        {
+            "id": 24,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "3h"
+        },
+        {
+            "id": 25,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "4a"
+        },
+        {
+            "id": 26,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "4b"
+        },
+        {
+            "id": 27,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "4c"
+        },
+        {
+            "id": 28,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "4d"
+        },
+        {
+            "id": 29,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "4e"
+        },
+        {
+            "id": 30,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "4f"
+        },
+        {
+            "id": 31,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "4g"
+        },
+        {
+            "id": 32,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "4h"
+        },
+        {
+            "id": 33,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "5a"
+        },
+        {
+            "id": 34,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "5b"
+        },
+        {
+            "id": 35,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "5c"
+        },
+        {
+            "id": 36,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "5d"
+        },
+        {
+            "id": 37,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "5e"
+        },
+        {
+            "id": 38,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "5f"
+        },
+        {
+            "id": 39,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "5g"
+        },
+        {
+            "id": 40,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "5h"
+        },
+        {
+            "id": 41,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "6a"
+        },
+        {
+            "id": 42,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "6b"
+        },
+        {
+            "id": 43,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "6c"
+        },
+        {
+            "id": 44,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "6d"
+        },
+        {
+            "id": 45,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "6e"
+        },
+        {
+            "id": 46,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "6f"
+        },
+        {
+            "id": 47,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "6g"
+        },
+        {
+            "id": 48,
+            "isBlack": false,
+            "isWhite": false,
+            "name": "6h"
+        },
+        {
+            "id": 49,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "7a"
+        },
+        {
+            "id": 50,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "7b"
+        },
+        {
+            "id": 51,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "7c"
+        },
+        {
+            "id": 52,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "7d"
+        },
+        {
+            "id": 53,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "7e"
+        },
+        {
+            "id": 54,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "7f"
+        },
+        {
+            "id": 55,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "7g"
+        },
+        {
+            "id": 56,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "7h"
+        },
+        {
+            "id": 57,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "8a"
+        },
+        {
+            "id": 58,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "8b"
+        },
+        {
+            "id": 59,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "8c"
+        },
+        {
+            "id": 60,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "8d"
+        },
+        {
+            "id": 61,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "8e"
+        },
+        {
+            "id": 62,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "8f"
+        },
+        {
+            "id": 63,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "8g"
+        },
+        {
+            "id": 64,
+            "isBlack": true,
+            "isWhite": false,
+            "name": "8h"
+        }
+    ],
+    "figure":[
+        {
+            "id":1,
+            "name": "king",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },
+        {
+            "id":2,
+            "name": "queen",
+            "color": "black",
+            "moves": [
+                1,5,2,12
+            ],
+            "isAlive": true
+        },{
+            "id":3,
+            "name": "bishop",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":4,
+            "name": "bishop",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":5,
+            "name": "knight",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":6,
+            "name": "knight",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":7,
+            "name": "rook",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":8,
+            "name": "rook",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":9,
+            "name": "pawn",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":10,
+            "name": "pawn",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":11,
+            "name": "pawn",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":12,
+            "name": "pawn",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":13,
+            "name": "pawn",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":14,
+            "name": "pawn",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":15,
+            "name": "pawn",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":16,
+            "name": "pawn",
+            "color": "black",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },
+        {
+            "id":17,
+            "name": "king",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },
+        {
+            "id":18,
+            "name": "queen",
+            "color": "white",
+            "moves": [
+                1,5,2,12
+            ],
+            "isAlive": true
+        },{
+            "id":19,
+            "name": "bishop",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":20,
+            "name": "bishop",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":21,
+            "name": "knight",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":22,
+            "name": "knight",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":23,
+            "name": "rook",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":24,
+            "name": "rook",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":25,
+            "name": "pawn",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":26,
+            "name": "pawn",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":27,
+            "name": "pawn",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":28,
+            "name": "pawn",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":29,
+            "name": "pawn",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":30,
+            "name": "pawn",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":31,
+            "name": "pawn",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        },{
+            "id":32,
+            "name": "pawn",
+            "color": "white",
+            "moves": [
+                1,2,3,4
+            ],
+            "isAlive": true
+        }
+    ]
+}
+

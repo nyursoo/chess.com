@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../image/chess-menu-transformed.png";
 import whiteking from "../image/pngwing.com.png";
 import whitebishop from "../image/white-bishop.png";
@@ -13,8 +13,16 @@ import blackpawn from "../image/black-pawn.png";
 import blackknight from "../image/black-knight.png"
 import blackbishop from "../image/black-bishop.png"
 import "./Main.css";
+import axios from "axios";
+
+
 
 const Main = () => {
+  const [board,setBoard] = useState([])
+  useEffect(()=>{
+    axios('http://localhost:8080/board')
+    .then(({data})=>setBoard(data))
+  },[])
   return (
     <div>
       <section className="menu">
@@ -205,6 +213,16 @@ const Main = () => {
             </div>
           </div>
         </div>
+
+
+        <div className="board">
+          {
+            board.map((el)=>(
+              <div className={'boardChess'}></div>
+            ))
+          }
+        </div>
+
       </section>
     </div>
   );
