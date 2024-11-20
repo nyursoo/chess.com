@@ -86,12 +86,16 @@ const moveFigure = async (el,figure)=>{
     try{
       let oldCell = board.find((item)=>item.name === select.located)
         oldCell = {...oldCell,isBlack:false,isWhite:false}
+
+        
+        
+
       
       await axios.patch(`http://localhost:8080/board/${oldCell.id}`,oldCell)
         const newFigure = {
           ...select,
           located:el.name,
-          moves:movesFigure(el,select)
+          moves:movesFigurePawn(el,select)
         }
          const newCell = {
           ...el,
@@ -116,7 +120,9 @@ const moveFigure = async (el,figure)=>{
     setSelect(figure)
   }
 }
-function movesFigure(cell,figure) {
+
+
+function movesFigurePawn(cell,figure) {
   const numberName = cell.name[0]
   const symbolName = cell.name[1]
   let newMoves = []
@@ -131,9 +137,22 @@ function movesFigure(cell,figure) {
     }
   }
   return newMoves
+}
+const moveBishop = ()=>{
   
 }
-
+const moveKing = ()=>{
+  
+}
+const moveQuenn = ()=>{
+  
+}
+const moveKnight = ()=>{
+  
+}
+const moveRook = ()=>{
+  
+}
   const cellRender = (el)=>{
     let one = ''
 
