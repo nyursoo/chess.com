@@ -13,21 +13,11 @@
   width: 100%;
   height: 100vh;
   background-color: #342b2b;
-}
-.menu__top {
-  height: 70px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
-.chess-logo {
-  width: 50px;
-  height: 60px;
-}
-.menu__top h1 {
-  font-family: "Montserrat", sans-serif;
-  color: aliceblue;
-}
+
 .box {
   column-gap: 40px;
   display: flex;
@@ -89,10 +79,16 @@
   width: 50px;
   height: 50px;
 }
+.cell.selected{
+  border: 4px solid red;
+}
+.cell.cell.selectedgreen{
+  border: 4px solid green;
+}
 
 /* Черно-белая раскраска */
 .cell:nth-child(odd) {
-  background-color: #000; /* Черный */
+  background-color: #342b2b; /* Черный */
 }
 
 .cell:nth-child(even) {
@@ -104,23 +100,27 @@
   background-color: #fff;
 }
 .chessboard > *:nth-child(-n+8):nth-child(even){
-  background-color: #000;
+  background-color: #342b2b;
 }
 .chessboard > *:nth-child(n+17):nth-child(-n+24):nth-child(odd){
   background-color: #fff;
 }
 .chessboard > *.cell:nth-child(n+17):nth-child(-n+24):nth-child(even){
-  background-color: #000;
+  background-color: #342b2b;
 }
 .chessboard > *:nth-child(n+33):nth-child(-n+40):nth-child(odd){
   background-color: #fff;
 }
 .chessboard > *.cell:nth-child(n+33):nth-child(-n+40):nth-child(even){
-  background-color: #000;
+  background-color: #342b2b;
 }
 .chessboard > *:nth-child(n+49):nth-child(-n+56):nth-child(odd){
   background-color: #fff;
 }
 .chessboard > *.cell:nth-child(n+49):nth-child(-n+56):nth-child(even){
-  background-color: #000;
+  background-color: #342b2b;
+}
+img{
+  width: 45px;
+  height: 45px;
 }
