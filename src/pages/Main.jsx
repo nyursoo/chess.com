@@ -21,16 +21,18 @@ const Main = () => {
   const [board,setBoard] = useState([])
   const [figures,setFigures] = useState([])
   const [select,setSelect] = useState(null) 
-  useEffect(()=>{
-    axios('http://localhost:8080/board')
-    .then(({data})=>setBoard(data))
-  },[])
+  const [db,setDb] = useState({})
 
   useEffect(()=>{
-    axios('http://localhost:8080/figure')
-    .then(({data})=>setFigures(data))
+    axios.get('http://localhost:8080/session/1')
+    .then(({data})=>setDb(data))
+    axios.get('http://localhost:8080/session/1')
+    .then(({data})=>setBoard(data.board))
+    axios.get('http://localhost:8080/session/1')
+    .then(({data})=>setFigures(data.figure))
+   
   },[])
-  
+
 
   const getFigures = (el,figure)=>{
   if(figure.color === 'white'){
@@ -74,108 +76,174 @@ const Main = () => {
     }
   }   
   }
-const moveFigure = async (el,figure)=>{  
-  if(select){
-    if (select.id === figure.id){
-      return setSelect(null)
-    }
-    
 
+  const calculatMoves = (figure)=>{
+    const numberName = +figure.located[0]
+    const symbolName = +figure.located[1].charCodeAt(0)
+    let moves = []
 
-   if(select.moves.includes(el.name)){
+    const isValidCell = (row,col)=> row >=1 && row <=8 && col >='a'.charCodeAt(0) && col<='h'.charCodeAt(0)
+      const addMove = (row,col)=>{
+        if(isValidCell(row,col)){
+          moves.push(row + String.fromCharCode(col));
+        };
+      }
+      switch(figure.name){
+        case'pawn':
+       const direction = figure.color === 'white' ? 1:-1;
+       addMove(numberName + direction,symbolName) ;
+       if((figure.color === 'white' && numberName === 2) || (figure.color === 'black' && numberName === 7)) {
+        addMove(numberName +2 * direction, symbolName)
+       }
+       break;
+
+       case 'knight':
+        [
+        [2,1],
+        [2,-1],
+        [-2,1],
+        [-2,-1],
+        [1,2],
+        [1,-2],
+        [-1,2],
+        [-1,-2]
+        ].forEach(([dr,dc])=>{
+          addMove(numberName + dr,symbolName +dc);
+        });
+        break;
+        case 'bishop':
+          [-1,1].forEach((rowOffset)=>{
+            [-1,1].forEach((colOffset)=>{
+              for(let i = 1;i<8;i++){
+                addMove(numberName + i * rowOffset,symbolName + i *colOffset)
+              }
+            })
+          });
+          break;
+          case 'rook':
+            [-1,1].forEach((offset)=>{
+              for(let i = 1;i<8;i++){
+                addMove(numberName + i *offset,symbolName);
+                addMove(numberName,symbolName + i *offset);
+              }
+            });
+            break;
+            case 'queen':
+              [-1,0,1].forEach((rowOffset)=>{
+                [-1,0,1].forEach((colOffset)=>{
+                  if(rowOffset === 0 && colOffset ===0) return;
+                  for(let i =1;i<8;i++){
+                    addMove(numberName + i * rowOffset,symbolName +i * colOffset)
+                  }
+                })
+              });
+              break;
+              case 'king':
+                [-1,0,1].forEach((rowOffset)=>{
+                  [-1,0,1].forEach((colOffset)=>{
+                    if(rowOffset ===0 && colOffset ===0) return;
+                    addMove(numberName + rowOffset, symbolName +colOffset);
+                  })
+                })
+                break;
+                default:
+                  break;
+      }
+      return moves
+  }
+
+  const updateAllFigures = async()=>{
     try{
-      let oldCell = board.find((item)=>item.name === select.located)
-        oldCell = {...oldCell,isBlack:false,isWhite:false}
-
-        
-        
-
-      
-      await axios.patch(`http://localhost:8080/board/${oldCell.id}`,oldCell)
-        const newFigure = {
-          ...select,
-          located:el.name,
-          moves:movesFigurePawn(el,select)
+      const updateFigures = figures.map((f)=>({
+        ...f,
+        moves:calculatMoves()
+      }));
+      await Promise.all(
+        updateFigures.map(async(figure)=>{
+          await axios.patch(`http://localhost:8080/figure/${figure.id}`,figure)
+        })
+      );
+      setFigures(updateFigures);
+      console.log('фигуры заменились успешно',updateFigures)
+    }
+    catch(err){
+      console.log(err,'ошибка фигуры не обновились!')
+    }
+  }
+    const handleClick= async(cell)=>{
+     
+      if(select){
+        if(!select.moves.includes(cell.name)){
+          alert('невозможный ход')
+          return;
         }
-         const newCell = {
-          ...el,
-          isWhite:select.color === 'white'?true:false,
-          isBlack:select.color ==='black'?true:false
-         }
+        try{
 
-         await axios.patch(`http://localhost:8080/board/${el.id}`,newCell)
-      await axios.patch(`http://localhost:8080/figure/${select.id}`,newFigure)
-      
+          const newCell = {
+            ...cell,
+            isBlack:select.color==='black'?true:false,
+            isWhite:select.color==='white'?true:false
+          }
+          let oldCell = board.find((item)=>item.name === select.located)
+          oldCell = {...oldCell,isWhite:false,isBlack:false}
+          const updateAllBoard = board.map((el)=>({
+            ...el,
+            isWhite:el.id === newCell.id?newCell.isWhite:el.id===oldCell.id?oldCell.isWhite:el.isWhite,
+            isBlack:el.id === newCell.id?newCell.isBlack:el.id===oldCell.id?oldCell.isBlack:el.isBlack,
 
-    }catch(err){
-      console.log('невозможно сделать такой ход')
+          }))
+          console.log(updateAllBoard)
+         
+       
+          const updateAllFigures = figures.map((f)=>({
+            ...f,
+            located:select.id === f.id?cell.name:f.located,
+            moves:select.id === f.id? calculatMoves({...select,located:cell.name}):calculatMoves(f)
+          }) )
+
+        
+            
+
+          const newData = {
+            ...db,
+            figure:updateAllFigures,
+            board:updateAllBoard
+          }
+          await axios.patch('http://localhost:8080/session/1',newData)
+
+         
+
+         
+        }
+        catch(err){
+          console.log(err)}
+      }
+      else{
+        const clickedFigure = figures.find((f)=>f.located ===cell.name);
+
+        if(clickedFigure)setSelect(clickedFigure)
+      }
     }
-   }
-     else if(select.id !== figure.id){
-  
-      return setSelect(figure)
-    }
-  }
-  else{
-    setSelect(figure)
-  }
-}
 
 
-function movesFigurePawn(cell,figure) {
-  const numberName = cell.name[0]
-  const symbolName = cell.name[1]
-  let newMoves = []
-  if(figure.color === 'white'){
-    if(figure.name === 'pawn'){
-      newMoves.push((+numberName + 1) +symbolName) 
-    }
-  }
-  else if(figure.color === 'black'){
-    if(figure.name === 'pawn'){
-      newMoves.push((+numberName - 1) +symbolName)  
-    }
-  }
-  return newMoves
-}
-const moveBishop = ()=>{
-  
-}
-const moveKing = ()=>{
-  
-}
-const moveQuenn = ()=>{
-  
-}
-const moveKnight = ()=>{
-  
-}
-const moveRook = ()=>{
-  
-}
-  const cellRender = (el)=>{
-    let one = ''
 
-    if(el.isWhite || el.isBlack){
-      const figure = figures.find((item)=>el.name === item.located)
-      one = figure
-    }
-    return(
-      <div onClick={()=>moveFigure(el,one)} id={el.name} key={el.name} className={`cell 
-      ${select?select.located=== el.name?'selected':'':''}
-      ${select?select.moves.includes(el.name)?'selectedgreen':'':''}
-      `} >
-        {one? <img src={getFigures(el,one)} alt="" />:''}
-      </div>
-    )
-  }
+  
 
   return (
     <div>
       <section className="menu">
         <div className="chessboard">
           {
-            board.map((el)=>cellRender(el))
+            board.map((el)=>(
+              <div key={el.id} 
+              className={`cell ${select && select.located === el.name?'selected':''} ${select?.moves.includes(el.name)?'selectedGreen':""}`} 
+              onClick={()=>handleClick(el)}
+              >
+                {figures.filter((f)=>f.located === el.name).map((figure)=>(
+                  <img key={figure.id} src={getFigures(el,figure)} alt="" />
+                ))}
+              </div>
+            ))
           }
         </div>
 
@@ -185,3 +253,6 @@ const moveRook = ()=>{
 };
 
 export default Main;
+
+
+

@@ -82,7 +82,7 @@
 .cell.selected{
   border: 4px solid red;
 }
-.cell.cell.selectedgreen{
+.cell.cell.selectedGreen{
   border: 4px solid green;
 }
 
@@ -123,4 +123,7 @@
 img{
   width: 45px;
   height: 45px;
+}
+.arr{
+  height: 100vh;
 }
